@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "HnB";
+  src: url(/fonts/HelveticaNeue-Bold.otf);
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url(/fonts/HelveticaNeue-Roman.otf);
+}
+
+@font-face {
+  font-family: "HnL";
+  src: url(/fonts/HelveticaNeue-Light.otf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --font-family: "HelveticaNeue", sans-serif;
+}
+
+header {
+  background-color: #2b2b2b;
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: white;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 4px;
+  padding: 6px 12px;
+  gap: 8px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 200px;
+}
+
+.my-xbox {
+  color: #fff;
+  opacity: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
