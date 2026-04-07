@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Call of Duty: WWII - Xbox</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -73,13 +75,13 @@
 
     <section class="content-section">
         <div class="content-row reverse">
-             <div class="content-text">
+            <div class="content-text">
                 <h3>The Best Answers</h3>
             </div>
             <div class="content-image">
                 <img src="./img/ranked.png" alt="Game Content">
             </div>
-           
+
         </div>
     </section>
 
@@ -143,5 +145,98 @@
             <span>© Microsoft 2017</span>
         </div>
     </footer>
+    <script>
+        (function () {
+            // === 1. Умный поиск по играм (пример) ===
+            const searchInput = document.querySelector('.search-bar input');
+            if (searchInput) {
+                searchInput.addEventListener('input', function (e) {
+                    const query = e.target.value.toLowerCase();
+                    // Просто для демо: выводим в консоль, но можно расширить
+                    console.log(`Поиск: ${query}`);
+                    if (query.length > 2) {
+                        // Эмуляция подсказок (не меняет интерфейс, просто лог)
+                        console.log('Ищем игры с "' + query + '"...');
+                    }
+                });
+            }
+
+            // === 2. Клик по видео — открытие в новой вкладке (или можно заменить на свой YouTube) ===
+            const videoContainer = document.querySelector('.video-container');
+            if (videoContainer) {
+                videoContainer.style.cursor = 'pointer';
+                videoContainer.addEventListener('click', function () {
+                    // Откроем трейлер Call of Duty: WWII на YouTube (можно заменить ссылку)
+                    window.open('https://www.youtube.com/watch?v=Hdyh1M8uGfE', '_blank');
+                });
+            }
+
+            // === 3. Кнопки "Order Now" — небольшое уведомление ===
+            const orderButtons = document.querySelectorAll('.btn-primary');
+            orderButtons.forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    alert('Спасибо за интерес! Игра добавлена в корзину (демо-режим).');
+                });
+            });
+
+            // === 4. Кнопка "More Games" — редирект на страницу с играми Xbox (пример) ===
+            const moreGamesBtn = document.querySelector('.hero-buttons .btn-secondary');
+            if (moreGamesBtn && moreGamesBtn.innerText.includes('More Games')) {
+                moreGamesBtn.addEventListener('click', function () {
+                    window.open('https://www.xbox.com/games', '_blank');
+                });
+            }
+
+            // === 5. Кнопка "Technical Specifications" — плавный скролл к секции ===
+            const techBtn = document.querySelector('.title-buttons .btn-dark');
+            const specsSection = document.querySelector('.specs-section');
+            if (techBtn && specsSection) {
+                techBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    specsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+
+            // === 6. Кнопка "Start streaming on mixer" — открытие Mixer (теперь это часть Xbox) ===
+            const streamBtn = Array.from(document.querySelectorAll('.btn-primary')).find(btn => btn.innerText.includes('streaming'));
+            if (streamBtn) {
+                streamBtn.addEventListener('click', function () {
+                    window.open('https://www.xbox.com/live', '_blank');
+                });
+            }
+
+            // === 7. Кнопка "XBOX Consoles" — ссылка на консоли ===
+            const consolesBtn = Array.from(document.querySelectorAll('.btn-dark')).find(btn => btn.innerText.includes('XBOX Consoles'));
+            if (consolesBtn) {
+                consolesBtn.addEventListener('click', function () {
+                    window.open('https://www.xbox.com/consoles', '_blank');
+                });
+            }
+
+            // === 8. Добавляем год в футер (динамически) ===
+            const copyrightSpan = document.querySelector('.footer-bottom span:last-child');
+            if (copyrightSpan) {
+                const currentYear = new Date().getFullYear();
+                copyrightSpan.innerText = `© Microsoft ${currentYear}`;
+            }
+
+            // === 9. Меняем текст поиска по клику на заглушку (если пустой) ===
+            if (searchInput) {
+                searchInput.addEventListener('blur', function () {
+                    if (this.value.trim() === '') {
+                        this.placeholder = 'Search games...';
+                    }
+                });
+                searchInput.addEventListener('focus', function () {
+                    this.placeholder = 'Type game name...';
+                });
+            }
+
+            // === 10. Консольное приветствие (просто для фана) ===
+            console.log('%c🎮 Call of Duty: WWII | Interactive demo ready', 'color: #9bf00b; font-size: 16px;');
+        })();
+    </script>
 </body>
+
 </html>
